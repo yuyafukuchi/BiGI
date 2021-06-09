@@ -63,7 +63,7 @@ parser.add_argument('--load', dest='load', action='store_true', default=False,  
 parser.add_argument('--model_file', type=str, help='Filename of the pretrained model.')
 parser.add_argument('--info', type=str, default='', help='Optional info for the experiment.')
 parser.add_argument('--negative', type=int, default=1, help='negative sampling rate')
-parser.add_argument('--save_node_feature', action='store_true', default=False, help='save node feature')
+parser.add_argument('--save_node_feature', action='store_true', default=True, help='save node feature')
 parser.add_argument('--wiki', type=bool, default=True, help='wiki-dataset')
 
 def seed_everything(seed=1111):
