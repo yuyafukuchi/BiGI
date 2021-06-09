@@ -245,7 +245,7 @@ for epoch in range(1, opt['num_epoch'] + 1):
         file_logger.log("new best model saved at epoch {}: {:.2f}\t{:.2f}" \
                         .format(epoch, auc_roc * 100, auc_pr * 100))
         if opt["save_node_feature"]:
-            np.savetxt("Bipartite_feature.txt" + str(opt["id"]), bi_feature)
+            np.save("Bipartite_feature.npy" + str(opt["id"]), bi_feature.cpu().detach().numpy())
     if epoch % opt['save_epoch'] != 0:
         os.remove(model_file)
 
@@ -260,7 +260,7 @@ for epoch in range(1, opt['num_epoch'] + 1):
 
 print("Training ended with {} epochs.".format(epoch))
 if opt["save_node_feature"]:
-    np.savetxt("Bipartite_feature.txt" + str(opt["id"]), bi_feature)
+    np.save("Bipartite_feature.npy" + str(opt["id"]), bi_feature.cpu().detach().numpy())
 
 
 """
